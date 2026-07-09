@@ -6,8 +6,8 @@ podlewanie: "umiarkowane"
 naslonecznienie: "słońce / półcień"
 przycinanie: "1-2x w sezonie (wiosna i ewentualnie sierpień), jeśli formowana na żywopłot"
 ogrodowe_zdjecie: 1
-hotspot_top: 49.6
-hotspot_left: 10.4
+hotspot_top: 50.9
+hotspot_left: 22.4
 ilosc: 7
 wielkosc_sadzonki: "20-30"
 ---

@@ -6,8 +6,9 @@ podlewanie: "odporna na suszę po ukorzenieniu, wrażliwa na zastoje wody zimą"
 naslonecznienie: "pełne słońce"
 przycinanie: "nie przycinaj jesienią — zetnij suche pędy nisko dopiero wczesną wiosną"
 ogrodowe_zdjecie: 1
-hotspot_top: 50
-hotspot_left: 50
+hotspot_top: 78.9
+hotspot_left: 70
+
 ilosc: 2
 wielkosc_sadzonki: "C2"
 ---

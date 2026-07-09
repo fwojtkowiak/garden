@@ -5,9 +5,9 @@ lokalizacja: "TODO - uzupelnij po ustaleniu miejsca w ogrodzie"
 podlewanie: "umiarkowane"
 naslonecznienie: "słońce / półcień"
 przycinanie: "nie wymaga cięcia, ewentualnie usuń przemarznięte liście wiosną"
-ogrodowe_zdjecie: 1
-hotspot_top: 50
-hotspot_left: 50
+ogrodowe_zdjecie: 5
+hotspot_top: 30.8
+hotspot_left: 65
 ilosc: 15
 wielkosc_sadzonki: "P14"
 ---

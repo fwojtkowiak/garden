@@ -7,7 +7,7 @@ naslonecznienie: "cień / półcień"
 przycinanie: "przyciąć zeschnięte liście jesienią po pierwszych przymrozkach"
 ogrodowe_zdjecie: 1
 hotspot_top: 85
-hotspot_left: 17.9
+hotspot_left: 33
 ilosc: 2
 wielkosc_sadzonki: "C2"
 ---

@@ -146,15 +146,15 @@
   </div>
 
   <div class="step" id="addStep" style="display:none;">
-    <h2>2. Po każdym kliknięciu na zdjęciu — podaj nazwę rośliny</h2>
-    <p class="hint" style="margin-top:0;">Kliknij dokładnie w miejsce rośliny na zdjęciu. Zaraz pod polami pojawi się kropka i wiersz w tabeli poniżej. Możesz kliknąć kilka razy pod rząd i nazwać rośliny na końcu — kolejność w tabeli odpowiada kolejności kliknięć.</p>
+    <h2>2. Po każdym kliknięciu na zdjęciu — wybierz roślinę z listy</h2>
+    <p class="hint" style="margin-top:0;">Kliknij dokładnie w miejsce rośliny na zdjęciu. W tabeli poniżej pojawi się nowy wiersz — wybierz z rozwijanej listy, która to roślina (żeby uniknąć pomyłek przy przepisywaniu). Możesz kliknąć kilka razy pod rząd i przypisać nazwy na końcu.</p>
   </div>
 
   <div class="step" id="tableStep" style="display:none;">
     <h2>3. Zaznaczone rośliny</h2>
     <table>
       <thead>
-        <tr><th>Nazwa</th><th>top %</th><th>left %</th><th></th></tr>
+        <tr><th>Roślina</th><th>top %</th><th>left %</th><th></th></tr>
       </thead>
       <tbody id="tableBody"></tbody>
     </table>
@@ -169,6 +169,43 @@
 </div>
 
 <script>
+  const PLANTS = [
+    { slug: "azalia-maruschka", name: "Azalia 'Maruschka'" },
+    { slug: "azalia-schneeperle", name: "Azalia 'Schneeperle'" },
+    { slug: "borowka", name: "Borówka" },
+    { slug: "budleja-nanho-blue", name: "Budleja Dawida 'Nanho Blue'" },
+    { slug: "ciemiernik-bialy", name: "Ciemiernik biały" },
+    { slug: "ciemiernik-black-beauty", name: "Ciemiernik 'Black Beauty'" },
+    { slug: "cis-farmen", name: "Cis pośredni 'Farmen'" },
+    { slug: "czosnek-atropurpureum", name: "Czosnek ciemnopurpurowy" },
+    { slug: "dabrowka-black-scallop", name: "Dąbrówka rozłogowa 'Black Scallop'" },
+    { slug: "dzwonek-szerokolistny", name: "Dzwonek szerokolistny" },
+    { slug: "fiolek-labradorski-purpurea", name: "Fiołek labradorski 'Purpurea'" },
+    { slug: "funkia-francee", name: "Funkia 'Francee'" },
+    { slug: "jasnota-white-nancy", name: "Jasnota plamista 'White Nancy'" },
+    { slug: "konwalinek-nigrescens", name: "Konwalinek płaskopędy 'Nigrescens'" },
+    { slug: "krzewuszka-midnight-wine", name: "Krzewuszka cudowna 'Elvera'" },
+    { slug: "laurowisnia-caucasica", name: "Laurowiśnia wschodnia 'Caucasica'" },
+    { slug: "liliowiec-bogeyman", name: "Liliowiec 'Bogeyman'" },
+    { slug: "malina", name: "Malina" },
+    { slug: "naparstnica-pams-choice", name: "Naparstnica purpurowa 'Pam's Choice'" },
+    { slug: "pecherznica-red-baron", name: "Pęcherznica kalinolistna 'Red Baron'" },
+    { slug: "piwonia-highlight", name: "Piwonia chińska 'Highlight'" },
+    { slug: "pluskwica-black-negligee", name: "Pluskwica prosta 'Black Negligee'" },
+    { slug: "roza-burgundy-iceberg", name: "Róża 'Burgundy Iceberg'" },
+    { slug: "rozchodnik-black-beauty", name: "Rozchodnik okazały 'Black Beauty'" },
+    { slug: "rozplenica-moudry", name: "Rozplenica japońska 'Moudry'" },
+    { slug: "sliwa-wisniowa-nigra", name: "Śliwa wiśniowa 'Nigra'" },
+    { slug: "szalwia-lyrata-purple-knockout", name: "Szałwia lirolistna 'Purple Knockout'" },
+    { slug: "szalwia-nemorosa", name: "Szałwia omszona" },
+    { slug: "tawulka-fanal", name: "Tawułka 'Fanal'" },
+    { slug: "zurawka-black-beauty", name: "Żurawka 'Black Beauty'" },
+    { slug: "zurawka-black-forest-cake", name: "Żurawka 'Black Forest Cake'" },
+    { slug: "zurawka-palace-purple", name: "Żurawka drobna 'Palace Purple'" },
+    { slug: "zurawka-stormy-seas", name: "Żurawka 'Stormy Seas'" },
+    { slug: "zywotnik-smaragd", name: "Żywotnik zachodni 'Smaragd'" },
+  ];
+
   const fileInput = document.getElementById('fileInput');
   const preview = document.getElementById('preview');
   const imgArea = document.getElementById('imgArea');
@@ -205,7 +242,7 @@
     counter++;
     points.push({
       id: counter,
-      name: 'roślina ' + counter,
+      slug: '',
       top: Math.round(top * 10) / 10,
       left: Math.round(left * 10) / 10,
     });
@@ -222,7 +259,7 @@
       dot.style.left = p.left + '%';
       const tip = document.createElement('div');
       tip.className = 'tip';
-      tip.textContent = p.id;
+      tip.textContent = p.slug ? (PLANTS.find(pl => pl.slug === p.slug) || {}).name || p.id : '#' + p.id;
       dot.appendChild(tip);
       imgArea.appendChild(dot);
     });
@@ -242,15 +279,25 @@
       const tr = document.createElement('tr');
 
       const tdName = document.createElement('td');
-      const nameInput = document.createElement('input');
-      nameInput.type = 'text';
-      nameInput.value = p.name;
-      nameInput.style.width = '180px';
-      nameInput.addEventListener('input', (e) => {
-        p.name = e.target.value;
+      const select = document.createElement('select');
+      select.style.width = '220px';
+      const emptyOpt = document.createElement('option');
+      emptyOpt.value = '';
+      emptyOpt.textContent = '— wybierz roślinę —';
+      select.appendChild(emptyOpt);
+      PLANTS.forEach(plant => {
+        const opt = document.createElement('option');
+        opt.value = plant.slug;
+        opt.textContent = plant.name;
+        if (plant.slug === p.slug) opt.selected = true;
+        select.appendChild(opt);
+      });
+      select.addEventListener('change', (e) => {
+        p.slug = e.target.value;
+        renderDots();
         renderOutput();
       });
-      tdName.appendChild(nameInput);
+      tdName.appendChild(select);
 
       const tdTop = document.createElement('td');
       tdTop.className = 'num';
@@ -283,8 +330,13 @@
 
   function renderOutput() {
     const photoIndex = photoIndexInput.value || 1;
-    const blocks = points.map(p => {
-      return `# ${p.name}\nogrodowe_zdjecie: ${photoIndex}\nhotspot_top: ${p.top}\nhotspot_left: ${p.left}\n`;
+    const zaznaczone = points.filter(p => p.slug);
+    if (zaznaczone.length === 0) {
+      output.value = '(wybierz rośliny z listy w tabeli powyżej, żeby zobaczyć wynik)';
+      return;
+    }
+    const blocks = zaznaczone.map(p => {
+      return `Plik: src/content/rosliny/${p.slug}.md\nogrodowe_zdjecie: ${photoIndex}\nhotspot_top: ${p.top}\nhotspot_left: ${p.left}\n`;
     });
     output.value = blocks.join('\n');
   }
