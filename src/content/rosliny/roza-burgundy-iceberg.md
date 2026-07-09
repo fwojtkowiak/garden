@@ -5,9 +5,13 @@ lokalizacja: "TODO - uzupelnij po ustaleniu miejsca w ogrodzie"
 podlewanie: "regularne, pod korzeń, unikać moczenia liści"
 naslonecznienie: "pełne słońce"
 przycinanie: "wiosną (marzec/kwiecień) formujące i sanitarne, latem usuwanie przekwitłych kwiatów"
-ogrodowe_zdjecie: 1
-hotspot_top: 50
-hotspot_left: 50
+hotspoty:
+  - zdjecie: 1
+    top: 38
+    left: 22
+  - zdjecie: 3
+    top: 60
+    left: 45
 ilosc: 1
 wielkosc_sadzonki: "20-30"
 ---

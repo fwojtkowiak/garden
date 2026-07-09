@@ -11,6 +11,17 @@ const zdjeciaOgrodu = [
   { id: 4, plik: '/images/ogrod-4.jpg', podpis: 'Podpis zdjęcia 4' },
   { id: 5, plik: '/images/ogrod-5.jpg', podpis: 'Podpis zdjęcia 5' },
 ];
+
+// Rozbija każdą roślinę na osobny punkt dla każdego wpisu w jej liście "hotspoty"
+const punkty = wszystkieRosliny.flatMap((roslina) =>
+  roslina.data.hotspoty.map((h) => ({
+    slug: roslina.slug,
+    name: roslina.data.name,
+    zdjecie: h.zdjecie,
+    top: h.top,
+    left: h.left,
+  }))
+);
 ---
 
 <html lang="pl">
@@ -73,18 +84,15 @@ const zdjeciaOgrodu = [
         <span class="photo-caption">{zdjecie.podpis}</span>
         <img src={zdjecie.plik} alt={zdjecie.podpis} />
 
-        {wszystkieRosliny
-          .filter((r) => r.data.ogrodowe_zdjecie === zdjecie.id)
-          .map((roslina) => (
-            <a
-              href={`/rosliny/${roslina.slug}`}
-              class="hotspot"
-              style={`top: ${roslina.data.hotspot_top}%; left: ${roslina.data.hotspot_left}%;`}
-            >
+        {punkty
+          .filter((p) => p.zdjecie === zdjecie.id)
+          .map((p) => (
+            <a href={`/rosliny/${p.slug}`} class="hotspot" style={`top: ${p.top}%; left: ${p.left}%;`}>
               <span class="dot"></span>
-              <span class="label">{roslina.data.name}</span>
+              <span class="label">{p.name}</span>
             </a>
-          ))}
+          ))
+        }
       </div>
     ))}
   </div>

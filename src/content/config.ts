@@ -9,9 +9,13 @@ const rosliny = defineCollection({
     podlewanie: z.string(),
     naslonecznienie: z.string(),
     przycinanie: z.string(),
-    ogrodowe_zdjecie: z.number(),
-    hotspot_top: z.number(),
-    hotspot_left: z.number(),
+    hotspoty: z.array(
+      z.object({
+        zdjecie: z.number(),
+        top: z.number(),
+        left: z.number(),
+      })
+    ),
     ilosc: z.number().optional(),
     wielkosc_sadzonki: z.string().optional(),
   }),

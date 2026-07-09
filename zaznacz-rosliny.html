@@ -336,9 +336,11 @@
       return;
     }
     const blocks = zaznaczone.map(p => {
-      return `Plik: src/content/rosliny/${p.slug}.md\nogrodowe_zdjecie: ${photoIndex}\nhotspot_top: ${p.top}\nhotspot_left: ${p.left}\n`;
+      return `Plik: src/content/rosliny/${p.slug}.md\nDodaj do listy "hotspoty":\n  - zdjecie: ${photoIndex}\n    top: ${p.top}\n    left: ${p.left}\n`;
     });
-    output.value = blocks.join('\n');
+    output.value = blocks.join('\n') +
+      '\n---\nWskazówka: jeśli ta sama roślina ma już wpis "hotspoty" z innego zdjęcia,\n' +
+      'dopisz nowy "- zdjecie: ..." pod istniejącymi, w tym samym wcięciu — nie nadpisuj listy.';
   }
 
   photoIndexInput.addEventListener('input', renderOutput);

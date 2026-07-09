@@ -5,9 +5,13 @@ lokalizacja: "TODO - uzupelnij po ustaleniu miejsca w ogrodzie"
 podlewanie: "umiarkowane, regularne w pierwszym roku po posadzeniu"
 naslonecznienie: "pełne słońce"
 przycinanie: "formujące zaraz po kwitnieniu (wiosna / wczesne lato)"
-ogrodowe_zdjecie: 1
-hotspot_top: 50
-hotspot_left: 50
+hotspoty:
+  - zdjecie: 1
+    top: 38
+    left: 22
+  - zdjecie: 3
+    top: 60
+    left: 45
 ilosc: 1
 wielkosc_sadzonki: "Pa130, 6-8"
 ---
