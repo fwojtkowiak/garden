@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const wszystkieRosliny = await getCollection('rosliny');
+  return wszystkieRosliny.map((roslina) => ({
+    params: { slug: roslina.slug },
+    props: { roslina },
+  }));
+}
+
+const { roslina } = Astro.props;
+const { Content } = await roslina.render();
+const dane = roslina.data;
+---
+
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{dane.name}</title>
+  <style>
+    :root {
+      --bg: #14171a;
+      --card-bg: #1c2024;
+      --accent: #6fae66;
+      --text: #e9ece9;
+      --text-muted: #9aa39a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 40px 20px; background: var(--bg); color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .wrap { max-width: 640px; margin: 0 auto; }
+    a.back { color: var(--text-muted); font-size: 13px; text-decoration: none; }
+    a.back:hover { color: var(--accent); }
+    img.hero { width: 100%; border-radius: 10px; margin: 20px 0; display: block; }
+    h1 { font-weight: 500; margin-bottom: 4px; }
+    p.loc { color: var(--text-muted); font-size: 14px; margin-top: 0; }
+    dl { display: grid; grid-template-columns: 140px 1fr; row-gap: 10px; font-size: 15px; margin: 24px 0; }
+    dt { color: var(--text-muted); }
+    dd { margin: 0; }
+    .content { border-top: 1px solid #2a2f33; padding-top: 20px; line-height: 1.6; font-size: 15px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <a class="back" href="/">← wróć do ogrodu</a>
+    <img class="hero" src={dane.zdjecie} alt={dane.name} />
+    <h1>{dane.name}</h1>
+    <p class="loc">{dane.lokalizacja}</p>
+
+    <dl>
+      <dt>Podlewanie</dt><dd>{dane.podlewanie}</dd>
+      <dt>Nasłonecznienie</dt><dd>{dane.naslonecznienie}</dd>
+      <dt>Przycinanie</dt><dd>{dane.przycinanie}</dd>
+      {dane.ilosc && <><dt>Ilość szt.</dt><dd>{dane.ilosc}</dd></>}
+      {dane.wielkosc_sadzonki && <><dt>Wielkość sadzonki</dt><dd>{dane.wielkosc_sadzonki}</dd></>}
+    </dl>
+
+    <div class="content">
+      <Content />
+    </div>
+  </div>
+</body>
+</html>

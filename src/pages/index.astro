@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+
+const wszystkieRosliny = await getCollection('rosliny');
+
+// Zdjęcia ogrodu — podmień na swoje pliki w /public/images/
+const zdjeciaOgrodu = [
+  { id: 1, plik: '/images/ogrod-1.jpg', podpis: 'Rabata przy tarasie' },
+  { id: 2, plik: '/images/ogrod-2.jpg', podpis: 'Grządka warzywna' },
+  { id: 3, plik: '/images/ogrod-3.jpg', podpis: 'Kącik pod drzewem' },
+  { id: 4, plik: '/images/ogrod-4.jpg', podpis: 'Podpis zdjęcia 4' },
+  { id: 5, plik: '/images/ogrod-5.jpg', podpis: 'Podpis zdjęcia 5' },
+];
+---
+
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mój ogród</title>
+  <style>
+    :root {
+      --bg: #14171a;
+      --card-bg: #1c2024;
+      --accent: #6fae66;
+      --text: #e9ece9;
+      --text-muted: #9aa39a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 40px 20px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    h1 { text-align: center; font-weight: 500; margin-bottom: 8px; }
+    p.sub { text-align: center; color: var(--text-muted); margin-bottom: 40px; font-size: 14px; }
+    .photos { display: flex; flex-direction: column; gap: 28px; max-width: 780px; margin: 0 auto; }
+    .photo-wrap { position: relative; border-radius: 10px; overflow: hidden; background: var(--card-bg); }
+    .photo-wrap img { width: 100%; display: block; }
+    .photo-caption {
+      position: absolute; top: 12px; left: 14px;
+      background: rgba(0,0,0,0.55); padding: 4px 10px; border-radius: 5px;
+      font-size: 12px; color: var(--text-muted);
+    }
+    .hotspot {
+      position: absolute; transform: translate(-50%, -50%);
+      display: flex; align-items: center; gap: 7px; text-decoration: none;
+    }
+    .hotspot .dot {
+      width: 16px; height: 16px; border-radius: 50%;
+      background: rgba(255,255,255,0.9); border: 2px solid var(--accent);
+      box-shadow: 0 0 6px rgba(0,0,0,0.5); flex-shrink: 0;
+    }
+    .hotspot .label {
+      background: rgba(0,0,0,0.75); color: #fff; padding: 4px 10px; border-radius: 5px;
+      font-size: 12.5px; white-space: nowrap; opacity: 0;
+      transition: opacity 0.15s ease; pointer-events: none;
+    }
+    .hotspot:hover .label, .hotspot:focus-visible .label { opacity: 1; }
+    .hotspot:hover .dot, .hotspot:focus-visible .dot { background: var(--accent); }
+    .hotspot:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <h1>Mój ogród</h1>
+  <p class="sub">Kliknij na roślinę, żeby zobaczyć zasady pielęgnacji</p>
+
+  <div class="photos">
+    {zdjeciaOgrodu.map((zdjecie) => (
+      <div class="photo-wrap">
+        <span class="photo-caption">{zdjecie.podpis}</span>
+        <img src={zdjecie.plik} alt={zdjecie.podpis} />
+
+        {wszystkieRosliny
+          .filter((r) => r.data.ogrodowe_zdjecie === zdjecie.id)
+          .map((roslina) => (
+            <a
+              href={`/rosliny/${roslina.slug}`}
+              class="hotspot"
+              style={`top: ${roslina.data.hotspot_top}%; left: ${roslina.data.hotspot_left}%;`}
+            >
+              <span class="dot"></span>
+              <span class="label">{roslina.data.name}</span>
+            </a>
+          ))}
+      </div>
+    ))}
+  </div>
+</body>
+</html>

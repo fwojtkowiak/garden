@@ -1,0 +1,12 @@
+Tu wstaw swoje zdjecia ogrodu jako:
+  ogrod-1.jpg
+  ogrod-2.jpg
+  ogrod-3.jpg
+
+Zdjecia pojedynczych roslin (widoczne na stronie szczegolow) wrzuc do podfolderu rosliny/, np.:
+  rosliny/hortensja.jpg
+  rosliny/lawenda.jpg
+  itd.
+
+Nazwy plikow musza sie zgadzac ze sciezkami wpisanymi w polu "zdjecie" w plikach markdown
+w src/content/rosliny/*.md
