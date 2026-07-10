@@ -7,8 +7,8 @@ naslonecznienie: "półcień"
 przycinanie: "usuwaj przekwitłe kwiatostany, chyba że chcesz samosiew na przyszły rok"
 hotspoty:
   - zdjecie: 1
-    top: 0
-    left: 0
+    top: 47.5
+    left: 66.5
 ilosc: 5
 wielkosc_sadzonki: "C2"
 ---
