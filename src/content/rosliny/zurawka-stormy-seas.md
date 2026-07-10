@@ -10,6 +10,12 @@ hotspoty:
   - zdjecie: 1
     top: 64
     left: 30
+  - zdjecie: 1
+    top: 68.5
+    left: 43
+  - zdjecie: 1
+    top: 56.3
+    left: 43
   - zdjecie: 3
     top: 60
     left: 45
@@ -18,4 +24,3 @@ wielkosc_sadzonki: "C2"
 ---
 
 Liście zimozielone, zostają na roślinie przez zimę. W bardzo mroźne, bezśnieżne zimy warto przykryć liśćmi lub agrowłókniną.
-# zurawka stormy seas

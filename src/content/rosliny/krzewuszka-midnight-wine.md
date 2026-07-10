@@ -7,11 +7,8 @@ naslonecznienie: "słońce / półcień"
 przycinanie: "zaraz po kwitnieniu — usuwanie przekwitłych pędów, co 2-3 lata odmładzanie"
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
-  - zdjecie: 3
-    top: 60
-    left: 45
+    top: 0
+    left: 0
 ilosc: 3
 wielkosc_sadzonki: "30-40"
 ---

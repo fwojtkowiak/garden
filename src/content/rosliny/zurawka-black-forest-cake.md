@@ -7,7 +7,7 @@ naslonecznienie: "półcień"
 przycinanie: "usuwanie zeschniętych liści na bieżąco, co 3-4 lata podział/odmłodzenie"
 hotspoty:
   - zdjecie: 1
-    top: 53
+    top: 54
     left: 70
   - zdjecie: 1
     top: 51

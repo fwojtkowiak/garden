@@ -8,11 +8,14 @@ przycinanie: "nie wymaga cięcia, ewentualnie usuń przemarznięte liście wiosn
 
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
+    top: 38.2
+    left: 102.4
+  - zdjecie: 1
+    top: 76.4
+    left: 38.6
   - zdjecie: 5
-    top: 30
-    left: 65
+    top: 3
+    left: 45
 ilosc: 15
 wielkosc_sadzonki: "P14"
 ---

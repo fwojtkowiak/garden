@@ -7,8 +7,8 @@ naslonecznienie: "pełne słońce"
 przycinanie: "przyciąć suche pędy wczesną wiosną"
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
+    top: 63.1
+    left: 60
   - zdjecie: 3
     top: 60
     left: 45

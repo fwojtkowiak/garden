@@ -7,11 +7,8 @@ naslonecznienie: "pełne słońce"
 przycinanie: "nie dotyczy — roślina cebulowa, po przekwitnięciu zostaw liście do naturalnego zżółknięcia"
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
-  - zdjecie: 3
-    top: 60
-    left: 45
+    top: 0
+    left: 0
 ilosc: 18
 wielkosc_sadzonki: "-"
 ---

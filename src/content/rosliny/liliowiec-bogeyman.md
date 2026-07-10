@@ -7,11 +7,8 @@ naslonecznienie: "słońce / półcień"
 przycinanie: "usuwanie przekwitłych pędów kwiatowych, liście przyciąć jesienią po przemarznięciu"
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
-  - zdjecie: 3
-    top: 60
-    left: 45
+    top: 0
+    left: 0
 ilosc: 5
 wielkosc_sadzonki: "C2"
 ---

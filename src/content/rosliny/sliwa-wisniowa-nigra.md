@@ -7,11 +7,8 @@ naslonecznienie: "pełne słońce"
 przycinanie: "formujące zaraz po kwitnieniu (wiosna / wczesne lato)"
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
-  - zdjecie: 3
-    top: 60
-    left: 45
+    top: 3.7
+    left: 106.3
 ilosc: 1
 wielkosc_sadzonki: "Pa130, 6-8"
 ---

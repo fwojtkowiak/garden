@@ -7,11 +7,8 @@ naslonecznienie: "słońce / cień (bardzo tolerancyjny)"
 przycinanie: "formowany 1-2x w sezonie (czerwiec i sierpień/wrzesień), bardzo dobrze znosi nawet mocne cięcie"
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
-  - zdjecie: 3
-    top: 60
-    left: 45
+    top: 0
+    left: 0
 ilosc: 4
 wielkosc_sadzonki: "do formowania, 30-40"
 ---

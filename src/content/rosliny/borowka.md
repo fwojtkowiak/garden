@@ -7,11 +7,8 @@ naslonecznienie: "słońce / półcień"
 przycinanie: "minimalne pierwsze 2-3 lata, potem coroczne przerzedzanie najstarszych pędów wczesną wiosną"
 hotspoty:
   - zdjecie: 1
-    top: 38
-    left: 22
-  - zdjecie: 3
-    top: 60
-    left: 45
+    top: 0
+    left: 0
 ilosc: 3
 wielkosc_sadzonki: "20-30"
 ---
