@@ -10,6 +10,12 @@ hotspoty:
     top: 63.1
     left: 60
   - zdjecie: 3
+    top: 35.6
+    left: 70.3
+  - zdjecie: 2
+    top: 61.1
+    left: 75
+  - zdjecie: 5
     top: 60
     left: 45
 ilosc: 4

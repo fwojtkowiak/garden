@@ -8,9 +8,6 @@ przycinanie: "nie przycinaj jesienią — zetnij suche pędy nisko dopiero wczes
   - zdjecie: 1
     top: 79
     left: 70
-  - zdjecie: 3
-    top: 60
-    left: 45
 
 ilosc: 2
 wielkosc_sadzonki: "C2"

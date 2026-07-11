@@ -6,9 +6,12 @@ podlewanie: "regularne, lubi wilgotne stanowisko"
 naslonecznienie: "półcień"
 przycinanie: "przycięcie przekwitłych kwiatostanów jesienią lub wiosną"
 hotspoty:
-  - zdjecie: 1
-    top: 0
-    left: 0
+  - zdjecie: 3
+    top: 54.8
+    left: 35.2
+  - zdjecie: 3
+    top: 41.9
+    left: 66.6
 ilosc: 6
 wielkosc_sadzonki: "C2"
 ---

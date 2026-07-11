@@ -9,6 +9,10 @@ hotspoty:
   - zdjecie: 2
     top: 56.2
     left: 75
+  - zdjecie: 3
+    top: 46.5
+    left: 60
+
 
 ilosc: 4
 wielkosc_sadzonki: "do formowania, 30-40"
