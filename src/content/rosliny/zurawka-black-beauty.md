@@ -6,9 +6,12 @@ podlewanie: "umiarkowane"
 naslonecznienie: "półcień"
 przycinanie: "usuwanie zeschniętych liści na bieżąco, co 3-4 lata podział/odmłodzenie"
 hotspoty:
-  - zdjecie: 1
-    top: 0
-    left: 0
+  - zdjecie: 2
+    top: 68.4
+    left: 50
+  - zdjecie: 2
+    top: 66.7
+    left: 60
 
 ilosc: 9
 wielkosc_sadzonki: "C2"

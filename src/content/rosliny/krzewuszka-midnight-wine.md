@@ -9,6 +9,9 @@ hotspoty:
   - zdjecie: 1
     top: 41.5
     left: 79.9
+  - zdjecie: 2
+    top: 62.4
+    left: 60
 ilosc: 3
 wielkosc_sadzonki: "30-40"
 ---

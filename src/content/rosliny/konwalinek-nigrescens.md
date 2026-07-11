@@ -14,8 +14,14 @@ hotspoty:
     top: 76.4
     left: 38.6
   - zdjecie: 5
-    top: 3
-    left: 45
+    top: 30
+    left: 65
+  - zdjecie: 2
+    top: 69.2
+    left: 43
+  - zdjecie: 2
+    top: 71.3
+    left: 68
 ilosc: 15
 wielkosc_sadzonki: "P14"
 ---

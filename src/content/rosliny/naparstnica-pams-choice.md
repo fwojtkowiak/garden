@@ -9,6 +9,9 @@ hotspoty:
   - zdjecie: 1
     top: 47.5
     left: 66.5
+  - zdjecie: 2
+    top: 57.2
+    left: 50
 ilosc: 5
 wielkosc_sadzonki: "C2"
 ---

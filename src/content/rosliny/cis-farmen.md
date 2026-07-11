@@ -6,9 +6,10 @@ podlewanie: "umiarkowane"
 naslonecznienie: "słońce / cień (bardzo tolerancyjny)"
 przycinanie: "formowany 1-2x w sezonie (czerwiec i sierpień/wrzesień), bardzo dobrze znosi nawet mocne cięcie"
 hotspoty:
-  - zdjecie: 1
-    top: 0
-    left: 0
+  - zdjecie: 2
+    top: 56.2
+    left: 75
+
 ilosc: 4
 wielkosc_sadzonki: "do formowania, 30-40"
 ---
