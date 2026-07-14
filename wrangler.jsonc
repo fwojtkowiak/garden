@@ -1,7 +1,17 @@
 {
-  "name": "ogrod-astro",
-  "compatibility_date": "2026-01-01",
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "garden",
+  "compatibility_date": "2026-07-09",
+  "observability": {
+    "enabled": true
+  },
+  "main": "dist/_worker.js/index.js",
+  "compatibility_flags": [
+    "global_fetch_strictly_public",
+    "nodejs_compat"
+  ],
   "assets": {
-    "directory": "./dist"
+    "binding": "ASSETS",
+    "directory": "dist"
   }
 }
